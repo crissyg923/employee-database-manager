@@ -18,7 +18,7 @@ inquirer.prompt([
 
 .then(({selection}) => {
     if(selection==='View All Departments') {
-        console.log('yes');
+        console.log('Viewing All Departments');
     }
 }
 )

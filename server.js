@@ -15,4 +15,26 @@ const db = mysql.createConnection(
     console.log('Connected')
 );
 
-console.log(process.env.DB_NAME);
+db.query('SELECT * FROM department', function(err, results) {
+    console.log(results);
+});
+
+db.query('SELECT * FROM roles', function(err, results) {
+    console.log(results);
+});
+
+db.query('SELECT * FROM employees', function(err, results) {
+    console.log(results);
+});
+
+db.query('INSERT INTO department(department_name)VALUES(?)', function(err, results) {
+
+});
+
+db.query('INSERT INTO roles(title, salary, department_id)', function(err, results) {
+
+});
+
+db.query('INSERT INTO employees(first_name, last_name, role_id, manager_id', function(err, results) {
+
+});
