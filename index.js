@@ -24,7 +24,7 @@ class Database {
         return this.connection.promise().query('SELECT department.id, department.department_name FROM department');
     }
     viewRoles() {
-        return this.connection.promise().query('SELECT department.id, department.department_name FROM department');
+        return this.connection.promise().query('SELECT roles.id, roles.title, roles.SALARY FROM roles');
     }
 
     addEmp(x) {

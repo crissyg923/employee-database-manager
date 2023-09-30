@@ -26,31 +26,31 @@ function init() {
             console.log('Viewing All Departments');
             viewDepartments();
         }
-        else if(selection==='View All Roles') {
+        if(selection==='View All Roles') {
             console.log('Viewing All Roles');
             viewRoles();
         }
-        else if(selection==='View All Employees') {
+        if(selection==='View All Employees') {
             console.log('Viewing All Employes');
         }
-        else if(selection==='Add a Department') {
+        if(selection==='Add a Department') {
             console.log('Adding a department');
             addDepartment();
         }
-        else if(selection==='Add a Role') {
+        if(selection==='Add a Role') {
             console.log('Adding a Role');
             addRole();
         }
-        else if(selection==='Add an Employee') {
+        if(selection==='Add an Employee') {
             console.log('Adding an Employee');
             addEmployee();
         }
-        else if(selection==='Updating Employee') {
+        if(selection==='Updating Employee') {
             console.log('Adding an Employee');
             // addEmployee(); 
         }
-        else{
-            console.log('Updating Employee');
+       if(selection==='exit') {
+            console.log('Goodbye');
             end();
         }
     });
@@ -63,7 +63,14 @@ function viewDepartments() {
         console.table(response);
         init();
     })
-}
+};
+function viewRoles() {
+    db.viewRoles()
+    .then(([response]) => {
+        console.table(response);
+        init();
+    })
+};
 
 function end() {
     return process.exit()
