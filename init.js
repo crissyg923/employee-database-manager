@@ -32,10 +32,11 @@ function init() {
         }
         if(selection==='View All Employees') {
             console.log('Viewing All Employes');
+            viewEmployees();
         }
         if(selection==='Add a Department') {
             console.log('Adding a department');
-            addDepartment();
+            addDept();
         }
         if(selection==='Add a Role') {
             console.log('Adding a Role');
@@ -43,11 +44,11 @@ function init() {
         }
         if(selection==='Add an Employee') {
             console.log('Adding an Employee');
-            addEmployee();
+            addEmp();
         }
-        if(selection==='Updating Employee') {
-            console.log('Adding an Employee');
-            // addEmployee(); 
+        if(selection==='Update an Employee Role') {
+            console.log('Updating Employee Role');
+            updateEmp();
         }
        if(selection==='exit') {
             console.log('Goodbye');
@@ -71,19 +72,32 @@ function viewRoles() {
         init();
     })
 };
+function viewEmployees() {
+    db.viewEmployees()
+    .then(([response]) => {
+        console.table(response);
+        init();
+    })
+};
 
 function end() {
     return process.exit()
 }
 
-function addDepartment () {
+function addDept () {
     return inquirer.prompt([{
         type: 'input',
         name: 'department',
         message: 'Please enter the name of the department.'
     }])
-    .then(({department}) => {
-        console.log(department);
+    .then((data) => {
+        let dept = {
+            department_name : data.department
+        }
+        db.addDept(dept)
+        console.log('Department Added!')
+        init();
+        
     })
 };
 
@@ -105,12 +119,22 @@ function addRole () {
          message: 'Please enter the department ID associated with this role.'
          }
 ])
-    .then(({title, salary, departmentId}) => {
-        console.log(title, salary, departmentId);
+    .then((data) => {
+        // if (error) {
+        //     console.error('Sorry, there was an error saving role.');
+        // }
+        let role = {
+            title : data.title,
+            SALARY :data.salary,
+            department_id : data.departmentId
+        }
+        db.addRole(role)
+        console.log("Role Added");
+        init();
     })
 };
 
-function addEmployee () {
+function addEmp () {
     return inquirer.prompt([
         {
         type: 'input',
@@ -134,7 +158,7 @@ function addEmployee () {
          },
 
 ])
-    // .then(({firstname, lastname, roleId, managerId}) => {
+    
     .then((data) => {
         let emp = {
             first_name: data.firstname,
@@ -146,8 +170,38 @@ function addEmployee () {
         db.addEmp(emp)
         // call view employee
         console.log("Employee added!");
+        init();
     })
 };
+
+function updateEmp () {
+    return inquirer.prompt ([
+        {
+            type: 'input',
+            name: 'newrole',
+            message: 'What is the id of the new role?'
+        },
+        {
+            type: 'input',
+            name: 'empid',
+            message:'What is the employee ID # of the employee?'
+        }
+       
+    ])
+    .then((data) => {
+        let role = {
+            role_id : data.newrole
+        }
+        let id = {
+            id : data.empid
+        }
+        
+        db.updateEmp(role, id)
+        console.log('Employee updated')
+        init();
+    })
+
+}
 
 init()
 

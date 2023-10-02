@@ -24,11 +24,23 @@ class Database {
         return this.connection.promise().query('SELECT department.id, department.department_name FROM department');
     }
     viewRoles() {
-        return this.connection.promise().query('SELECT roles.id, roles.title, roles.SALARY FROM roles');
+        return this.connection.promise().query('SELECT roles.id, roles.title, roles.SALARY, roles.department_id  FROM roles');
+    }
+    viewEmployees() {
+        return this.connection.promise().query('Select employees.id, employees.first_name, employees.last_name, employees.role_id, employees.manager_id FROM employees')
+    }
+    addDept(dept) {
+        return this.connection.promise().query('INSERT INTO department SET ?', dept);
+    }
+    addRole(role){
+        return this.connection.promise().query('INSERT INTO roles SET ?', role);
     }
 
     addEmp(x) {
         return this.connection.promise().query('INSERT INTO employees SET ?', x);
+    }
+    updateEmp(x,y){
+        return this.connection.promise().query('UPDATE employees SET role_id = ? WHERE employees.id = ?', [x, y])
     }
 }
 
