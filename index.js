@@ -40,7 +40,7 @@ class Database {
         return this.connection.promise().query('INSERT INTO employees SET ?', x);
     }
     updateEmp(x,y){
-        return this.connection.promise().query('UPDATE employees SET role_id = ? WHERE employees.id = ?', [x, y])
+        return this.connection.promise().query('UPDATE employees SET role_id = ? WHERE employees.id = ?', [x, y]);
     }
 }
 

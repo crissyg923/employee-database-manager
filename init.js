@@ -196,12 +196,12 @@ function updateEmp () {
             id : data.empid
         }
         
-        db.updateEmp(role, id)
+        db.updateEmp(data.newrole, data.empid)
         console.log('Employee updated')
         init();
     })
 
 }
-
+-
 init()
 
