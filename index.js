@@ -15,6 +15,7 @@ const db = mysql.createConnection(
     console.log('Connected')
 );
 
+// This class creates all of the database queries and attaches them to a promise.
 class Database {
     constructor(connection){
         this.connection=connection;
@@ -46,26 +47,3 @@ class Database {
 
 module.exports = new Database(db);
 
-// db.query('SELECT * FROM roles', function(err, results) {
-//     console.log(results);
-// });
-
-// db.query('SELECT * FROM employees', function(err, results) {
-//     console.log(results);
-// });
-
-// db.query('INSERT INTO department(department_name)VALUES(?)', function(err, results) {
-
-// });
-
-// db.query('INSERT INTO roles(title, salary, department_id)', function(err, results) {
-
-// });
-
-// db.query('INSERT INTO employees(first_name, last_name, role_id, manager_id', function(err, results) {
-
-// });
-
-// db.query('Update employees SET ? Where id=?', function(err, results) {
-
-// });

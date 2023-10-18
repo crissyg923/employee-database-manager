@@ -1,7 +1,7 @@
 const inquirer=require('inquirer');
 const db = require('./index');
-// require('console.table');
 
+// Grabs user input to view/add/update areas of database.
 function init() {
     
     inquirer.prompt([
@@ -120,9 +120,6 @@ function addRole () {
          }
 ])
     .then((data) => {
-        // if (error) {
-        //     console.error('Sorry, there was an error saving role.');
-        // }
         let role = {
             title : data.title,
             SALARY :data.salary,
@@ -166,9 +163,9 @@ function addEmp () {
             role_id: data.roleId,
             manager_id: data.managerId
         }
-        // console.log(firstname, lastname, roleId, managerId);
+        
         db.addEmp(emp)
-        // call view employee
+        
         console.log("Employee added!");
         init();
     })

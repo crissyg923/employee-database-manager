@@ -1,7 +1,10 @@
 # employee-database-manager
 ![Static Badge](https://img.shields.io/badge/License-MIT-green)
 ## Description
-This terminal application was created to quickly and efficiently manage an employe database.  Using simple commands, employees, departments, and roles can be created and updated.  This project gave me a basic understanding of how to use MYSQL, workbench, and the building blocks to creating databases in the future.
+This terminal application was created to quickly and efficiently manage an employe database.  Using simple commands, employees, departments, and roles can be created and updated.  This project gave me a basic understanding of how to use MYSQL, workbench, and the building blocks to creating databases in the future.  Check out the video walkthrough below to see this app in action.
+
+[Video Walkthrough](https://watch.screencastify.com/v/SL3HdZsO2TWB5DaZKzG6)
+
 ![App Screenshot](./app-screenshot.png)
 
 ## Table of Contents
