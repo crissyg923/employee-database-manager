@@ -2,6 +2,7 @@
 ![Static Badge](https://img.shields.io/badge/License-MIT-green)
 ## Description
 This terminal application was created to quickly and efficiently manage an employe database.  Using simple commands, employees, departments, and roles can be created and updated.  This project gave me a basic understanding of how to use MYSQL, workbench, and the building blocks to creating databases in the future.
+![App Screenshot](./app-screenshot.png)
 
 ## Table of Contents
 
@@ -13,10 +14,10 @@ This terminal application was created to quickly and efficiently manage an emplo
 6. [Questions](#questions)
 
 ## Installation
-Clone the [employee-database-manager](https://github.com/crissyg923/employee-database-manager) and run npm i on your computer to install the dependencies.  To run the actual prrogram, use the command "node index.js".
+Clone the [employee-database-manager](https://github.com/crissyg923/employee-database-manager) and run npm i on your computer to install the dependencies.  To run the actual program, use the command "node init.js".
 
 ## Usage
-This application can be used by running the command node index.js.  It is a basic database that is updated via user input.  
+This application can be used by running the command node init.js.  It is a basic database that is updated via user input.  
 
 ## Credits
 This application was created utilizing the help of class assignment code, Rutgers TAs, and tutors.
